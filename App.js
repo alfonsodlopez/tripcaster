@@ -9,49 +9,98 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Alert,
+  Button,
+  TextInput,
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
 export default class App extends Component<{}> {
+
+    state = {
+        currentLocation: "",
+        destination: "",
+        searchQuery: ""
+    }
+
+    _onPressButton() {
+        Alert.alert('You tapped the button!')
+    }
+
+    enterText(value) {
+    /*    console.log(value);*/  
+        this.setState(this.state)
+    };
+
+
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <View style={styles.row}>
+            <Text style={styles.label}>
+                Current Location:
+            </Text>
+            <TextInput 
+                style={styles.textInput}
+                onChangeText={this.enterText.bind(this)}
+            >
+            </TextInput>
+        </View>
+        <View style={styles.row}>
+            <Text style={styles.label}>
+                Destination:
+            </Text>
+            <TextInput 
+                style={styles.textInput}
+                onChangeText={this.enterText.bind(this)}
+            >
+            </TextInput>
+        </View>
+        <Button
+            className = "submit_button"
+            onPress={this._onPressButton}
+            title="Submit"
+            color="#841584"
+            accessibilityLabel="Learn more about this purple button"
+        />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+        padding: 10
+    },
+    submit_button: {
+        borderColor: '#60b7e2',
+        borderWidth: 1,  
+    },
+    textInput: {
+        textAlign: 'left',
+        color: '#333333',
+        margin: 5,
+        marginBottom: 30,
+        height: 50,
+        borderColor: '#60b7e2',
+        borderWidth: 1,
+        flex: 2
+    },
+    row: {
+        flexDirection: 'row',
+        justifyContent:'center',
+        alignItems: 'center',
+        height: 50
+    },
+    label: {
+        textAlign: 'right',
+        margin: 10,
+        flex: 1,
+        color: '#60b7e2',
   },
 });
