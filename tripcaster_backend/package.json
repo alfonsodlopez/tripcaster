@@ -1,0 +1,25 @@
+{
+  "name": "tripcaster_backend",
+  "version": "1.0.0",
+  "description": "backend for tripcaster app",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "dev": "NODE_ENV=development nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "eslint-config-equimper": "^2.2.1",
+    "express": "^4.16.2",
+    "google-distance-matrix": "^1.1.1",
+    "mongoose": "^5.0.1",
+    "morgan": "^1.9.0"
+  }
+}

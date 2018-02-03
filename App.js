@@ -23,8 +23,8 @@ export default class App extends Component<{}> {
         destination: '',
         searchQuery: '',
         listenNotesURL: 'https://listennotes.p.mashape.com/api/v1/search?offset=&',
-        len_min: 0,
-        len_max: 200,
+        len_min: 40,
+        len_max: 50,
         offset: 0,
         text: '',
         travelMode: 'DRIVING'
@@ -44,7 +44,6 @@ export default class App extends Component<{}> {
             .map(k => esc(k) + '=' + esc(params[k]))
             .join('&');
         console.log(this.podcastSearchURL+query)
-        console.log(secrets)
         fetch(this.podcastSearchURL+query, {
             method: 'GET',
             headers: {
